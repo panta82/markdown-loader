@@ -4,7 +4,7 @@
   "description": "Quickly load markdown (eg. README.md) from a public url (eg. your git repository) and place it in your DOM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,12 @@
   "homepage": "https://github.com/panta82/markdown-loader#readme",
   "devDependencies": {
     "browserify": "^14.1.0",
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.1",
     "gulp-util": "^3.0.8",
+    "mocha": "^3.2.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
