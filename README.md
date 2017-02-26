@@ -10,6 +10,16 @@ There is also special handling for github link. You can just paste the URL to yo
 
 I intend to use this to "synchronize" markdown and html files in my git repositories without too much fuss.
 
+## Get it
+
+#### Github releases
+[https://github.com/panta82/markdown-loader/releases/](https://github.com/panta82/markdown-loader/releases/)
+
+#### RawGit CDN:
+| Version | Development | Production |  
+|---------|-------------|------------|
+| 1.0 | [markdown-loader.js](https://cdn.rawgit.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.js)| [markdown-loader.min.js](https://cdn.rawgit.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.min.js)|
+
 ## Automatic loading
 
 Any element with `data-md-load` attribute will be filled with markdown from the specified URL.
