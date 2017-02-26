@@ -10,6 +10,12 @@ var imageFixer = require('./markdown/image_fixer');
 var DEFAULT_OPTIONS = require('./opts');
 
 function load(opts, callback) {
+	if (typeof opts === 'string') {
+		opts = {
+			source: opts
+		};
+	}
+
 	opts = Object.assign({}, DEFAULT_OPTIONS, opts);
 
 	var sourceUrl = url.normalizeSourceUri(opts.source).toString();
