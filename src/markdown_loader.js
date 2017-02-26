@@ -11,8 +11,8 @@ function load(source, target) {
 	var text = http.get(sourceUrl);
 	
 	var md = new MarkdownIt();
-	hrefFixer(md);
-	imageFixer(md);
+	hrefFixer(md, sourceUrl);
+	imageFixer(md, sourceUrl);
 
 	var html = md.render(text);
 	
