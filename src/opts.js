@@ -8,5 +8,9 @@ module.exports = {
 
 	// Load the markdown synchronously
 	// Useful if you want to avoid content jumping effect while it is being loaded
-	synchronous: false
+	synchronous: false,
+
+	// Data attributes to use to auto-load markdown. Value should be the "source" option.
+	data_attr: 'data-md-load',
+	data_attr_sync: 'data-md-load-sync'
 };

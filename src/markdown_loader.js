@@ -41,8 +41,26 @@ function load(opts, callback) {
 	});
 }
 
-function autoLoad(path, target) {
-	//TODO
+function autoLoad() {
+	dom.findByAttributes([DEFAULT_OPTIONS.data_attr, DEFAULT_OPTIONS.data_attr_sync]).forEach(function (result) {
+		if (result.element._markdownLoader_autoloaded) {
+			return;
+		}
+
+		var opts = Object.assign({}, DEFAULT_OPTIONS, {
+			source: result[DEFAULT_OPTIONS.data_attr] || result[DEFAULT_OPTIONS.data_attr_sync],
+			target: result.element,
+			synchronous: !!result[DEFAULT_OPTIONS.data_attr_sync]
+		});
+
+		result.element._markdownLoader_autoloaded = true;
+		load(opts, function (err, el) {
+			if (err) {
+				result.element._markdownLoader_autoloaded = true;
+				return log.error(err);
+			}
+		});
+	});
 }
 
 module.exports = {
