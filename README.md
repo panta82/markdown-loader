@@ -10,15 +10,7 @@ There is also special handling for github link. You can just paste the URL to yo
 
 I intend to use this to "synchronize" markdown and html files in my git repositories without too much fuss.
 
-## Get it
-
-#### Github releases
-[https://github.com/panta82/markdown-loader/releases/](https://github.com/panta82/markdown-loader/releases/)
-
-#### RawGit CDN:
-| Version | Development | Production |  
-|---------|-------------|------------|
-| 1.0 | [markdown-loader.js](https://cdn.rawgit.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.js)| [markdown-loader.min.js](https://cdn.rawgit.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.min.js)|
+Get it from **[github releases](https://github.com/panta82/markdown-loader/releases/)**.
 
 ## Automatic loading
 
@@ -30,7 +22,7 @@ You must include the `markdown-loader.js` *after* the target DOM element.
 
 <!-- more stuff -->
 
-<script src="https://cdn.rawgit.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.min.js"></script>
+<script src="https://github.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.js"></script>
 ```
 
 If you want to avoid annoying jumping of HTML when markdown is loaded, you can use
