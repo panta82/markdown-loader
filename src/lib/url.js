@@ -24,7 +24,7 @@ function toAbsoluteUri(uri, baseUrl) {
 }
 
 function normalizeSourceUri(source) {
-	uri = toAbsoluteUri(source, getCurrentLocation());
+	uri = toAbsoluteUri(source || './', getCurrentLocation());
 	uri = normalizeToGithubRawUri(uri);
 	return uri;
 }

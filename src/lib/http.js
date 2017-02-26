@@ -1,45 +1,33 @@
-function getInBrowser(url, callback) {
+function get(url, synchronous, callback) {
+	if (typeof(XMLHttpRequest) === undefined) {
+		throw new Error('This utility requires a web browser with AJAX enabled');
+	}
+
 	var request = new XMLHttpRequest();
-	var async = !!callback;
-	request.open('GET', url, !!callback);
-	if (callback) {
-		oReq.addEventListener('load', onResponse);
-		oReq.addEventListener('error', onResponse);
-		oReq.addEventListener('abort', onResponse);
+	request.open('GET', url, !synchronous);
+	if (!synchronous) {
+		request.addEventListener('load', onResponse);
+		request.addEventListener('error', onResponse);
+		request.addEventListener('abort', onResponse);
 	}
 	request.send(null);
 
-	if (!callback) {
+	if (synchronous) {
 		return onResponse(request);
 	}
 
 	return request;
 
-	function onResponse(req) {
-		console.log(req);
-
+	function onResponse() {
 		if (request.status === 200) {
-			if (callback) {
-				return callback(null, req.responseText)
-			} else {
-				return req.responseText;
-			}
+			return callback(null, request.responseText)
 		}
 
-		return request;
+		var message = 'Failed to load "' + url + '": ' + request.statusText + ' (' + request.status + ')';
+		var error = new Error(message);
+		error.status = request.status;
+		return callback(error);
 	}
-}
-
-function getInNode(url, callback) {
-	throw new Error('This utility requires a web browser with AJAX enabled');
-}
-
-function get(url, callback) {
-	if (typeof(XMLHttpRequest) === undefined) {
-		return getInNode(url, callback);
-	}
-
-	return getInBrowser(url, callback);
 }
 
 module.exports = {

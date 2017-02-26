@@ -12,7 +12,10 @@
 		
 		<script src="../dist/markdown-loader.js"></script>
 		<script>
-			markdownLoader('https://github.com/panta82/Github-linking-test', 'readme');
+			markdownLoader.load({
+				source: 'https://github.com/panta82/Github-linking-test',
+				target: 'readme'
+			});
 		</script>
 	</body>
 </html>

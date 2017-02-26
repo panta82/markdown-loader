@@ -2,30 +2,43 @@ var MarkdownIt = require('markdown-it');
 
 var http = require('./lib/http');
 var url = require('./lib/url');
+var dom = require('./lib/dom');
+var log = require('./lib/log');
 var hrefFixer = require('./markdown/href_fixer');
 var imageFixer = require('./markdown/image_fixer');
 
-function load(source, target) {
-	var sourceUrl = url.normalizeSourceUri(source).toString();
-	
-	var text = http.get(sourceUrl);
-	
-	var md = new MarkdownIt();
-	hrefFixer(md, sourceUrl);
-	imageFixer(md, sourceUrl);
+var DEFAULT_OPTIONS = require('./opts');
 
-	var html = md.render(text);
+function load(opts, callback) {
+	opts = Object.assign({}, DEFAULT_OPTIONS, opts);
+
+	var sourceUrl = url.normalizeSourceUri(opts.source).toString();
 	
-	var targetEl;
-	if (typeof target === 'string') {
-		targetEl = document.getElementById(target);
-		if (!targetEl) {
-			throw new Error("Couldn't find element with name \"" + target + '"');
+	return http.get(sourceUrl, opts.synchronous, function (err, text) {
+		if (err) {
+			return log.callbackOrError(callback, err);
 		}
-	} else {
-		targetEl = target;
-	}
-	targetEl.innerHTML = html;
+
+		var md = new MarkdownIt();
+		hrefFixer(md, sourceUrl);
+		imageFixer(md, sourceUrl);
+
+		var html = md.render(text);
+
+		if (!opts.target) {
+			// Return html string
+			return callback && callback(null, html);
+		}
+
+		// Load html into the DOM
+		var targetEl = dom.findElement(opts.target);
+		if (!targetEl) {
+			return log.callbackOrError(callback, new Error("Couldn't find target element: " + opts.target));
+		}
+
+		targetEl.innerHTML = html;
+		return callback && callback(null, targetEl, html);
+	});
 }
 
 function autoLoad(path, target) {
