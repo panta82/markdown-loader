@@ -1,7 +1,5 @@
-function testName() {
-	console.log('test2');
+var markdownLoader = require('./markdown_loader');
+
+if (window) {
+	window.markdownLoader = markdownLoader.load;
 }
-
-console.log('hey');
-
-testName();
