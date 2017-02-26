@@ -10,6 +10,8 @@ There is also special handling for github link. You can just paste the URL to yo
 
 I intend to use this to "synchronize" markdown and html files in my git repositories without too much fuss.
 
+Demo: **[Project's auto-generated GH page](https://panta82.github.io/markdown-loader/)**
+
 Get it from **[github releases](https://github.com/panta82/markdown-loader/releases/)**.
 
 ## Automatic loading
@@ -26,8 +28,7 @@ You must include the `markdown-loader.js` *after* the target DOM element.
 ```
 
 If you want to avoid annoying jumping of HTML when markdown is loaded, you can use
-the synchronous version. In this case, the script should be *right after
-the target element*.
+the synchronous version. You need to have `markdown-loader.js` available locally and put its `<script>` tag *right after* the target element.
 
 ```html
 <div data-md-load-sync="https://github.com/panta82/markdown-loader"></div>
