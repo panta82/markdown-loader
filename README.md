@@ -74,6 +74,12 @@ You can see full options in [opts.js](src/opts.js);
 ## Development
 
 ```bash
+npm install -g gulp
+```
+
+...then...
+
+```bash
 git clone https://github.com/panta82/markdown-loader.git
 cd markdown-loader
 npm install
