@@ -1,0 +1,19 @@
+{
+  "name": "markdown-loader",
+  "version": "1.0.0",
+  "description": "Quickly load markdown (eg. README.md) from a public url (eg. your git repository) and place it in your DOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panta82/markdown-loader.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panta82/markdown-loader/issues"
+  },
+  "homepage": "https://github.com/panta82/markdown-loader#readme"
+}
