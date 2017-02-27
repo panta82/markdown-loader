@@ -6,7 +6,7 @@ Here's what this script does:
 - Compile it into html
 - Optionally display straight in DOM
 
-There is also special handling for github link. You can just paste the URL to your repo, markdown loader will auto-resolve proper `githubusercontent.com` content link.
+There is special handling for github links. You can just paste the URL to your repo, markdown loader will auto-resolve proper `githubusercontent.com` to your `README.md` file.
 
 I intend to use this to "synchronize" markdown and html files in my git repositories without too much fuss.
 
@@ -17,7 +17,7 @@ Get it from **[github releases](https://github.com/panta82/markdown-loader/relea
 ## Automatic loading
 
 Any element with `data-md-load` attribute will be filled with markdown from the specified URL.
-You must include the `markdown-loader.js` *after* the target DOM element.
+You must include the `markdown-loader.js` *after* the target DOM element (or use `async` attribute).
 
 ```html
 <div data-md-load="https://github.com/panta82/markdown-loader"></div>
@@ -27,8 +27,9 @@ You must include the `markdown-loader.js` *after* the target DOM element.
 <script src="https://github.com/panta82/markdown-loader/releases/download/1.0.1/markdown-loader.js"></script>
 ```
 
-If you want to avoid annoying jumping of HTML when markdown is loaded, you can use
-the synchronous version. You need to have `markdown-loader.js` available locally and put its `<script>` tag *right after* the target element.
+If you want to avoid annoying jumping of HTML when markdown is loaded, you can use the synchronous variant.
+In this case, I suggest you place your `<script>` tag *right after* the target element.
+This will make it seem as if markdown is part of your html document.
 
 ```html
 <div data-md-load-sync="https://github.com/panta82/markdown-loader"></div>
