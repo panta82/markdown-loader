@@ -12,7 +12,11 @@ function findElement(idOrEl) {
 
 function findByAttributes(attributes, rootElement) {
 	rootElement = rootElement || document;
-	var selector = attributes.map(a => '[' + a + ']').join(',');
+	var selector = attributes
+		.map(function (a) {
+			return '[' + a + ']'
+		})
+		.join(',');
 	var nodeList = rootElement.querySelectorAll(selector);
 	
 	var results = [];
