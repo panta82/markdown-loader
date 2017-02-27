@@ -20,10 +20,7 @@ function get(url, synchronous, callback) {
 
 	function onResponse() {
 		if (request.status === 200) {
-
-			return setTimeout(function () {
-				return callback(null, request.responseText)
-			}, 1000);
+			return callback(null, request.responseText)
 		}
 
 		var message = 'Failed to load "' + url + '": ' + request.statusText + ' (' + request.status + ')';

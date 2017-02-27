@@ -1,6 +1,6 @@
 {
   "name": "markdown-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quickly load markdown (eg. README.md) from a public url (eg. your git repository) and place it in your DOM",
   "main": "index.js",
   "scripts": {
