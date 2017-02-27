@@ -24,7 +24,7 @@ You must include the `markdown-loader.js` *after* the target DOM element.
 
 <!-- more stuff -->
 
-<script src="https://github.com/panta82/markdown-loader/releases/download/1.0.0/markdown-loader.js"></script>
+<script src="https://github.com/panta82/markdown-loader/releases/download/1.0.1/markdown-loader.js"></script>
 ```
 
 If you want to avoid annoying jumping of HTML when markdown is loaded, you can use
